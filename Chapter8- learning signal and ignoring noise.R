@@ -67,10 +67,10 @@ alpha        = 0.005
 iterations   = 350
 hidden_size  = 20
 pixels_per_image = nWidth*nWidth
-weights_0_1 = 0.04* matrix(rnorm(pixels_per_image*hidden_size,mean=0,sd=1)
+weights_0_1 = matrix(runif(pixels_per_image*hidden_size,min=-0.1,max=0.1)
                             ,nrow=hidden_size)
-weights_1_2 = 0.04* matrix(rnorm(hidden_size*num_labels,mean=0, sd=1),
-                         nrow=hidden_size) 
+weights_1_2 = matrix(runif(hidden_size*num_labels,min=-0.1,max=0.1),
+                         nrow=hidden_size)  
 
 
 for (j in seq(1,iterations)){
@@ -137,10 +137,11 @@ num_labels       = 10
 nTrain = dim(images)[1]
 nTest = 1000
 
-weights_0_1 = 0.04* matrix(rnorm(pixels_per_image*hidden_size,mean=0,sd=1)
-                           ,ncol=hidden_size)
-weights_1_2 = 0.04* matrix(rnorm(hidden_size*num_labels,mean=0, sd=1),
-                           nrow=hidden_size) 
+weights_0_1 = matrix(runif(pixels_per_image*hidden_size,min=-0.1,max=0.1)
+                     ,nrow=hidden_size)
+weights_1_2 = matrix(runif(hidden_size*num_labels,min=-0.1,max=0.1),
+                     nrow=hidden_size) 
+
 
 for (j in seq(1,iterations)){
   error = 0. 
@@ -211,8 +212,10 @@ pixels_per_image = 784
 num_labels       = 10 
 hidden_size      = 100
 
-weights_0_1 = 0.1*matrix(rnorm(pixels_per_image*hidden_size, mean=0, sd=0.1), ncol=hidden_size)
-weights_1_2 = 0.1*matrix(rnorm(hidden_size*num_labels, mean=0, sd=0.1), nrow=hidden_size)
+weights_0_1 = matrix(runif(pixels_per_image*hidden_size,min=-0.1,max=0.1)
+                     ,ncol=hidden_size)
+weights_1_2 = matrix(runif(hidden_size*num_labels,min=-0.1,max=0.1),
+                     nrow=hidden_size) 
 
 
 for (j in seq(1,iterations)){
