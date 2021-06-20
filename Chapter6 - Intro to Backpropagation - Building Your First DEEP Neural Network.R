@@ -106,8 +106,8 @@ streetlights <- matrix(c(1, 0, 1 ,
 
 walk_vs_stop <- c( 1, 1, 0, 0) # .T
 
-weights_0_1 = 2*matrix(rnorm(3*hidden_size),3) - 1
-weights_1_2 = 2*matrix(rnorm(hidden_size),hidden_size) - 1
+weights_0_1 = matrix(runif(3*hidden_size,max=1,min=-1),ncol=hidden_size)
+weights_1_2 = matrix(runif(hidden_size,max=1,min=-1),nrow=hidden_size)
 
 layer_0 <- streetlights[1,1:ncol(streetlights)]
 layer_1 <- relu(layer_0 %*% weights_0_1)
@@ -135,8 +135,8 @@ relu2deriv= function(output){
 alpha = 0.2
 hidden_size = 4
 
-weights_0_1 = 2*matrix(rnorm(3*hidden_size,mean=0.5,sd=0.5),3) -1
-weights_1_2 = 2*matrix(rnorm(hidden_size,mean=0.5,sd=0.5),hidden_size)-1
+weights_0_1 = matrix(runif(3*hidden_size,max=1,min=-1),ncol=hidden_size)
+weights_1_2 = matrix(runif(hidden_size,max=1,min=-1),nrow=hidden_size)
 
 for (iteration in seq(1,70)){
    layer_2_error = 0
@@ -182,8 +182,8 @@ walk_stop <- c(1, 1, 0, 0)
 alpha = 0.2
 hidden_size = 3
 
-weights_0_1 = 2*matrix(rnorm(3*hidden_size,mean=0.5,sd=0.5),3) -1
-weights_1_2 = 2*matrix(rnorm(hidden_size,mean=0.5,sd=0.5),hidden_size)-1
+weights_0_1 = matrix(runif(3*hidden_size,max=1,min=-1),ncol=hidden_size)
+weights_1_2 = matrix(runif(hidden_size,max=1,min=-1),nrow=hidden_size)
 
 layer_0 <- lights[1,1:ncol(lights)]
 layer_1 <- layer_0 %*% weights_0_1
@@ -229,8 +229,8 @@ walk_stop <- c(1, 1, 0, 0)
 alpha = 0.2
 hidden_size = 4
 
-weights_0_1 = 2*matrix(rnorm(3*hidden_size,mean=0.5,sd=0.5),3) -1
-weights_1_2 = 2*matrix(rnorm(hidden_size,mean=0.5,sd=0.5),hidden_size)-1
+weights_0_1 = matrix(runif(3*hidden_size,max=1,min=-1),ncol=hidden_size)
+weights_1_2 = matrix(runif(hidden_size,max=1,min=-1),nrow=hidden_size)
 
 
 for (iteration in seq(1,70)){
