@@ -138,7 +138,7 @@ nTrain = dim(images)[1]
 nTest = 1000
 
 weights_0_1 = matrix(runif(pixels_per_image*hidden_size,min=-0.1,max=0.1)
-                     ,nrow=hidden_size)
+                     ,ncol=hidden_size)
 weights_1_2 = matrix(runif(hidden_size*num_labels,min=-0.1,max=0.1),
                      nrow=hidden_size) 
 
@@ -222,8 +222,8 @@ for (j in seq(1,iterations)){
   error = 0.
   correct_cnt = 0
   for (i in seq(1,as.integer(nrow(images)/ batch_size))-1){
-    batch_start = i*batch_size
-    batch_end   = (i+1)*batch_size-1
+    batch_start = (i-1)*batch_size
+    batch_end   = (i)*batch_size-1
     
     layer_0 <- images[batch_start:batch_end,]
     layer_1 <-  relu(layer_0 %*% weights_0_1)
